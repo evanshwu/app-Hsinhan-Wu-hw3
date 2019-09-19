@@ -1,0 +1,117 @@
+<html>
+
+<head>
+   <style>
+        body{
+            font-family: 'Ariel', sans-serif;
+        }
+        #form {
+            text-align: right;
+            padding: 60px;
+        }
+
+        #form label{
+            color: blue;
+        }
+
+        #form .result{
+            color: black;
+            text-align: center;
+        }
+
+        input{
+            border: 1px solid #98ab79;
+        }
+
+        textarea {
+            vertical-align: top;
+            border: 1px solid #98ab79;
+        }
+
+        .container{
+            border: 5px solid #1e5cd3;
+            text-align:center;
+            margin: auto;
+            border-radius: 15px;
+            width: 500px;
+            background-color: #fdecd6;
+            padding: 10px;
+            vertical-align: center;
+        }
+
+        .innercontainer{
+            text-align: center;
+        }
+
+        .upperpart{
+            margin: 0 auto;
+            padding-right: 19%;
+        }
+
+        .bottompart{
+            text-align: center;
+        }
+
+        .regBtn{
+            background-color: #1e5cd3;
+            color: white;
+            border: none;
+            text-align: center;
+            border-radius: 4px;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="innercontainer">
+            <div name="form" id="form">
+                <div class="upperpart">
+                    <label for="firstname">First Name</label> <input type="text" id="firstname" class="firstname"
+                        placeholder="Fist Name" /><br><br>
+                    <label for="lastname">Last Name</label> <input type="text" id="lastname" class="lastname"
+                        placeholder="Last Name" /><br><br>
+                    <label for="email">Email Address</label> <input type="text" id="email" class="email"
+                        placeholder="Email Address" /><br><br>
+                    <label for="notes">Notes</label> <textarea id="notes" class="notes" row="10" cols="20"></textarea><br><br>
+                </div> 
+                <div class="bottompart">
+                    <button id="regBtn" class="regBtn" onclick="register()">Register</button><br>
+                    <h4 id="result" class="result"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+function register() {
+    var firstname = document.getElementById("firstname").value.trim();
+    var lastname = document.getElementById("lastname").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var notes = document.getElementById("notes").value.trim();
+    if(firstname==""){
+        document.getElementById("result").innerHTML="First Name cannot be empty";
+        document.getElementById("result").style.color = "RED";
+    }else if(lastname==""){
+        document.getElementById("result").innerHTML="Last Name cannot be empty";
+        document.getElementById("result").style.color = "RED";
+    }else if(email==""){
+        document.getElementById("result").innerHTML="Email Address cannot be empty";
+        document.getElementById("result").style.color = "RED";
+    }else if(notes==""){
+        document.getElementById("result").innerHTML="Notes cannot be empty";
+        document.getElementById("result").style.color = "RED";
+    }else if(firstname!=""&&lastname!=""&&email!=""&&notes!=""){
+        document.getElementById("result").innerHTML="Validation successful.";
+        document.getElementById("result").style.color = "GREEN";
+    }
+    
+    
+}
+</script>
+
+</html>
